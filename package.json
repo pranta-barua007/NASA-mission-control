@@ -1,0 +1,28 @@
+{
+    "name": "nasa-mission-control",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "install-server": "npm install --prefix server",
+      "install-client": "npm install --prefix client",
+      "install": "npm run install-server && npm run install-client",
+      "server": "npm run watch --prefix server",
+      "client": "npm start --prefix client",
+      "watch": "npm run server & npm run client",
+      "deploy": "npm run build --prefix client && npm start --prefix server",
+      "test": "npm test --prefix server && npm test --prefix client"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/pranta-barua007/NASA-mission-control.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {},
+    "bugs": {
+      "url": "https://github.com/pranta-barua007/NASA-mission-control/issues"
+    },
+    "homepage": "https://github.com/pranta-barua007/NASA-mission-control#readme"
+}
