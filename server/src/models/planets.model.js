@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const parse = require('csv-parse');
 
-const result = []; //habitablePlanetsDataArray
+const planetsDatabase = require('./planets.mongo');
 
 const isHabitablePlanet = (planet) => {
     return planet['koi_disposition'] === 'CONFIRMED' && 
@@ -17,26 +17,48 @@ function loadHabitablePlanetsData() {
             comment: '#',
             columns: true
         }))
-        .on('data', (data) => {
-            if(isHabitablePlanet(data)) {
-                result.push(data)
+        .on('data', async (data) => {
+            if(isHabitablePlanet(data)) { 
+                await savePlanets(data);
             }
         })
         .on('error', (err) => {
             console.log(err);
             reject();
         })
-        .on('end', () => {
-            console.log(`${result.length} habitable planets found`);
+        .on('end', async () => {
+            const countPlanetsFound = (await getAllPlanets()).length;
+            console.log(`${countPlanetsFound} habitable planets found`);
             resolve();
         });
     });
 };
 
-function getAllPlanets() {
-    return result;
+async function getAllPlanets() {
+    return await planetsDatabase.find({}, {
+        '__id': 0, '__v': 0
+    }); 
+    //first {} filters nothing and returns all the list, 
+    //second {} accepts the values that needs to excluded and needs to be set to 0
 };
 
+async function savePlanets(planetData) {
+    //create a mongo doc in planets collection using upsert
+    //upsert = update + insert 
+    try {
+        await planetsDatabase.updateOne({
+            keplerName: planetData.kepler_name  //check if a document already exists
+        },
+        {
+            keplerName: planetData.kepler_name // if doesn't then insert or update
+        },
+        {
+            upsert: true // enables upsert feature in mongo
+        });
+    } catch (err) {
+        console.error(`Failed to save planets in Database ${err}`)
+    }
+};
 
 module.exports = {
     loadHabitablePlanetsData,
