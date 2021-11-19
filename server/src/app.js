@@ -9,9 +9,7 @@ const api = require('./routes/api');
 const app = express();
 
 app.use(helmet());
-app.use(cors({
-  origin: 'https://nasa-mission-control-portfo.herokuapp.com',
-}));
+app.use(cors());
 app.use(morgan('combined'));
 
 app.use(express.json());
