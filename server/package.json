@@ -8,7 +8,9 @@
     "test-watch": "jest --watch",
     "watch": "nodemon src/server.js",
     "start": "node src/server.js",
-    "cluster": "pm2 start src/server.js -i max"
+    "cluster": "pm2 start src/server.js -i max",
+    "list-cluster": "pm2 list",
+    "delete-cluster": "pm2 delete all"
   },
   "author": "",
   "license": "ISC",

@@ -23,7 +23,7 @@ const Launch = props => {
       <label htmlFor="launch-day">Launch Date</label>
       <input type="date" id="launch-day" name="launch-day" min={today} max="2040-12-31" defaultValue={today} />
       <label htmlFor="mission-name">Mission Name</label>
-      <input type="text" id="mission-name" name="mission-name" />
+      <input type="text" id="mission-name" name="mission-name" required={true}/>
       <label htmlFor="rocket-name">Rocket Type</label>
       <input type="text" id="rocket-name" name="rocket-name" defaultValue="Explorer IS1" />
       <label htmlFor="planets-selector">Destination Exoplanet</label>
