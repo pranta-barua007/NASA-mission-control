@@ -12,7 +12,7 @@
       "watch": "npm run server & npm run client",
       "deploy": "npm run build --prefix client && npm start --prefix server",
       "deploy-cluster": "npm run build --prefix client && npm run cluster --prefix server",
-      "start": "npm run deploy",
+      "start": "npm run deploy-cluster",
       "test": "npm test --prefix server && npm test --prefix client"
     },
     "repository": {
