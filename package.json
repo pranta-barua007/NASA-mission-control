@@ -13,7 +13,7 @@
       "deploy": "npm run build --prefix client && npm start --prefix server",
       "deploy-cluster": "npm run build --prefix client && npm run cluster --prefix server",
       "heroku-cluster": "npm run build --prefix client && npm run heroku-cluster --prefix server",
-      "start": "npm run deploy-cluster",
+      "start": "npm run heroku-cluster",
       "test": "npm test --prefix server && npm test --prefix client"
     },
     "repository": {
