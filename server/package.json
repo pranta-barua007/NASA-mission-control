@@ -9,6 +9,7 @@
     "watch": "nodemon src/server.js",
     "start": "node src/server.js",
     "cluster": "pm2 start src/server.js -i max",
+    "pmcluster": "pm2-runtime start ecosystem.config.js --env production",
     "list-cluster": "pm2 list",
     "delete-cluster": "pm2 delete all"
   },
