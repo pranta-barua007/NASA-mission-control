@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --detectOpenHandles",
     "test-watch": "jest --watch",
-    "watch": "nodemon src/server.js",
+    "watch": "CHOKIDAR_USEPOLLING=true nodemon src/server.js",
     "start": "node src/server.js",
     "cluster": "pm2 start src/server.js -i max",
     "heroku-cluster": "pm2-runtime start ecosystem.config.js --env production",
