@@ -3,8 +3,9 @@
 
 This will set your set shell for npm run-scripts in Windows [Know more how to set shell in windows for npm](https://stackoverflow.com/questions/23243353/how-to-set-shell-for-npm-run-scripts-in-windows)
 
-# Getting Started with the App
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Server Architecture
+
+![Server Architecture](https://github.com/pranta-barua007/NASA-mission-control/blob/master/__readme-images/nasa.png?raw=true)
 
 ## Available Scripts
 In the project directory, you can run:
