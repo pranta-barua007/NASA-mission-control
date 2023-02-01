@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  webapp:
+    container_name: nasa-mvc
+    working_dir: /app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment: 
+      PORT: "8000"
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./:/app
+      - /app/client/node_modules
+      - /app/server/node_modules

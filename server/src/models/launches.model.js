@@ -36,7 +36,7 @@ async function populateLaunces() {
     }
 
     const launchDocs = response.data.docs;
-    console.log(launchDocs)
+    //console.log(launchDocs)
     for(const launchDoc of launchDocs) {
         const payloads = launchDoc['payloads'];
         const customers = payloads.flatMap((payload) => {
